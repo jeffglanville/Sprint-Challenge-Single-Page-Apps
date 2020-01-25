@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-export default function CharacterList(props) {
+
+export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [character, setCharacter] = useState({});
 
@@ -18,15 +19,7 @@ export default function CharacterList(props) {
     });
   }, []);
 
-  return (
-    <section className="character-list">
-      <div>
-        {character.map(() => {
-          return
-        })}
-      </div>
-    </section>
+  return(
+    <h2>Character List</h2>
   )
 }
-
-

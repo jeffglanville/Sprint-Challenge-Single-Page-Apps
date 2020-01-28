@@ -1,16 +1,11 @@
 import React from "react";
-import {Link} from 'react-router-dom';
-import CharacterList from '../components/CharacterList';
 
-export default function CharacterCard(props) {
-  const {results} = props
-  useEffect(() => {}, []);
+export default function CharacterCard() {
+
 
   return (
   <div>
-    {results && (
-      <Link to = {`/CharacterList/${results.id}`}/>
-    )}
+    <h1>CharacterInfo</h1>
   </div>
   );
 }

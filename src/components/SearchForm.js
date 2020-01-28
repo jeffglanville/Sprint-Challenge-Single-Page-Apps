@@ -1,32 +1,31 @@
-import React, { useState} from "react";
+import React from "react";
 
 
 export default function SearchForm(props) {
-  const [char, setChar] = props;
-  const [input,setInput] = useState('')
+const [char, setChar] = props;
 
+const handleChange = e => {
+  setChar({...char, [e.target.name]: e.target.value});
+}
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const userInfo = {
-      name: input,
-      status: input,
-      species: input,
-      type: input,
-      gender: input
-    }
-    setChar([...char, userInfo])
-  }
+const handleSubmit = e => {
+  e.preventDefault();
+  const newToon = {name: char.name, status: char.status, species: char.species, type: char.type, gender: char.gender}
+  setChar({...char, characters:[...char.characters, newToon]});
+};
 
+if(!char){
+  return <h1>Sorry that is not a Rick and Morty Character!</h1>
+}
 
   return (
     <section className="search-form">
-     <form onSubmit = {(e) => handleSubmit(e)}>
-       <input type = "text" onChange={(e) => setInput(e.target.value)} name = "name" placeholder = "Name" />
-       <input type = "text" onChange={(e) => setInput(e.target.value)} name = "status" placeholder = "Status" />
-       <input type = "text" onChange={(e) => setInput(e.target.value)} name = "species" placeholder = "Species" />
-       <input type = "text" onChange={(e) => setInput(e.target.value)} name = "type" placeholder = "Type" />
-       <input type = "text" onChange={(e) => setInput(e.target.value)} name = "gender" placeholder = "Gender" />
+     <form onSubmit = {e => handleSubmit(e)}>
+       <input type = "text" value = {char.name} name = "name" placeholder = "Name" onChange = {e => handleChange(e)} />
+       <input type = "text" value = {char.status} name = "status" placeholder = "Status" onChange = {e => handleChange(e)} />
+       <input type = "text" value = {char.species} name = "species" placeholder = "Species" onChange = {e => handleChange(e)} />
+       <input type = "text" value = {char.type} name = "type" placeholder = "Type" onChange = {e => handleChange(e)} />
+       <input type = "text" value = {char.gender} name = "gender" placeholder = "Gender" onChange = {e => handleChange(e)} />
       <button type = "submit">Submit</button>
      </form>
     </section>

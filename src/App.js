@@ -22,7 +22,7 @@ function App() {
       <WelcomePage />
       </Route>
       <Header />
-      <SearchForm />
+      <SearchForm char = {char} setChar = {setChar}/>
       <CharacterCard char = {char} setChar = {setChar}/>
       <CharacterList />
     </main>

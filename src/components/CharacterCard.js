@@ -1,18 +1,17 @@
 import React from "react";
-// import {useParams} from 'react-router-dom';
 
-export default function CharacterCard() {
-  // const {char} = useParams();
+export default function CharacterCard(props) {
+  const {char} = props;
 
 
 
   return (
-  <div>
-    {/* <h1>CharacterInfo</h1>
+  <div className = "card-wrapper">
+    <p>Name: {char.name}</p>
     <p>Status: {char.status}</p>
     <p>Species: {char.species}</p>
-    <p>Type: {char.type}</p>
-    <p>Gender: {char.gender}</p> */}
+    {char.type ? <p>Type: {char.type}</p> : ""}
+    <p>Gender: {char.gender}</p>
   </div>
   );
 }

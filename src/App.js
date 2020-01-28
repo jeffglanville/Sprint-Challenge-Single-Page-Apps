@@ -25,7 +25,6 @@ function App() {
       <SearchForm />
       <CharacterCard char = {char} setChar = {setChar}/>
       <CharacterList />
-
     </main>
   );
 }
